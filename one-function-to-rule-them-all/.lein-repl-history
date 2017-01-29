@@ -1,0 +1,46 @@
+(doc cons)
+(doc reduce)
+(doc str)
+(clojure.string/join " " ["1" " " " 2x"])
+(apply str (interpose " " ["more" " " "Legend"]))
+(doc conj)
+(conj [] " " "a")
+(vector 1 2)
+(get (vector 1 2) 1)
+(vector 1 2) 1
+(def v (vector 1 2))
+v 1
+v :1
+{:a "moi"} :a
+(def z {:a "moi"})
+z :a
+:a z
+(z :a)
+(v :1)
+v
+(v 0)
+(v 1)
+(max 0 nil)
+(max 0)
+(max 0 1)
+(max 0 1 2)
+(conj '() 1)
+(conj (conj '() 1) 2)
+(conj (conj (vector) 1) 2)
+(doc conj)
+(doc concat)
+(first (vector))
+> (first (vector)) 0
+(> (first (vector)) 0)
+(defn fullhouse [x & more] (more))
+(defn fullhouse [x & more] more)
+fullhouse 1 2 3
+(fullhouse 1 2 3)
+(fullhouse 1 2 3 4)
+(fullhouse 1 2 3 4 5)
+(defn fullhouse [& more] more)
+(fullhouse 1 2 3 4 5)
+(defn fullhouse [&more] more)
+(*)
+(fullhouse 1)
+(pos? 0)

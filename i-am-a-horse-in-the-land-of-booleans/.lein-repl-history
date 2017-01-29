@@ -1,0 +1,18 @@
+(boolean "foo")
+(boolean (boolean true))
+(boolean nil)
+(nil)
+nil
++ 1 2
+(def arvo "foo")
+arvo
+(= "foo" arvo)
+(= 1)
+(< 1)
+(< 0)
+(defn teen? [age]
+  (< 12 age 20))
+(teen? 12)
+(teen? 13)
+(teen? 19)
+(teen? 20)

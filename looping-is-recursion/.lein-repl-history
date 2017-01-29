@@ -1,0 +1,81 @@
+(defn helper [acc n]
+  (if (zero? n)
+    acc
+    (helper (* acc n) (dec n))))
+(defn accumulating-factorial [n]
+  (helper 1 n))
+(defn recur-factorial [number]
+  (let [helper (fn [acc n]
+                 (if (zero? n)
+                   acc
+                   (recur (* acc n) (dec n))))]
+    (helper 1 number)))
+(accumulating-factorial 10)
+(accumulating-factorial 20)
+(accumulating-factorial 40)
+(accumulating-factorial 30)
+(accumulating-factorial 25)
+(accumulating-factorial 22)
+(accumulating-factorial 21)
+(accumulating-factorial 20)
+(time (accumulating-factorial 20))
+(time (map (fn [x] (accumulating-factorial 20)) (range 20)))
+(time (map (fn [x] (accumulating-factorial 20)) (range 200)))
+(time (map (fn [x] (or (accumulating-factorial 20) "")) (range 200)))
+(time (map (fn [x] (and (accumulating-factorial 20) "")) (range 200)))
+(time (map (fn [x] (and (accumulating-factorial 20) "")) (range 400)))
+(time (map (fn [x] (and (accumulating-factorial 20) "")) (range 4000)))
+(time (first (map (fn [x] (and (accumulating-factorial 20) "")) (range 4000))))
+(time (first (map (fn [x] (accumulating-factorial 20)) (range 4000))))
+(time (first (map (fn [x] (accumulating-factorial 20)) (range 40000))))
+(time (last (map (fn [x] (accumulating-factorial 20)) (range 40000))))
+(time (last (map (fn [x] (accumulating-factorial 20)) (range 100000))))
+(time (last (map (fn [x] (accumulating-factorial 20)) (range 1000000))))
+(time (last (map (fn [x] (recur-factorial 20)) (range 1000000))))
+(defn recur-sum [n]
+  (if (zero? n)
+    0
+    (+ n (recur-sum (dec n)))))
+(defn tail-sum [n]
+  (let [calculator (fn [acc n]
+                     (if (zero? n)
+                       acc
+                       (recur (+ acc n) (dec n))))]
+    (calculator 0 n)))
+(time (last (map (fn [x] (recur-sum 20)) (range 1000000))))
+(time (last (map (fn [x] (recur-sum 1000)) (range 1))))
+(time (last (map (fn [x] (recur-sum 100000)) (range 1))))
+(time (last (map (fn [x] (tail-sum 100000)) (range 1))))
+(time (last (map (fn [x] (tail-sum 1000000)) (range 1))))
+(time (last (map (fn [x] (tail-sum 10000000)) (range 1))))
+(time (last (map (fn [x] (tail-sum 100000)) (range 1))))
+(time (last (map (fn [x] (tail-sum 100000)) (range 100))))
+(time (last (map (fn [x] (recur-sum 100000)) (range 100))))
+(time (last (map (fn [x] (recur-sum 10000)) (range 100))))
+(time (last (map (fn [x] (recur-sum 1000)) (range 100))))
+(time (last (map (fn [x] (recur-sum 10000)) (range 100))))
+(time (last (map (fn [x] (recur-sum 1000)) (range 100))))
+(time (last (map (fn [x] (recur-sum 5000)) (range 100))))
+(time (last (map (fn [x] (recur-sum 7500)) (range 100))))
+(time (last (map (fn [x] (recur-sum 6500)) (range 100))))
+(time (last (map (fn [x] (recur-sum 6500)) (range 10000))))
+(time (last (map (fn [x] (recur-sum 6500)) (range 10000))))'
+'
+(time (last (map (fn [x] (recur-sum 6500)) (range 10000))))
+(time (last (map (fn [x] (tail-sum 6500)) (range 10000))))
+quit
+(dec 0.5)
+(* 1 0.5)
+(zero? -1)
+(neg? -1)
+(neg? 0)
++ 1 2
+(/ 1 0)
+NaN
+(doc toggle)
+(toggle 1)
+(doc contains?)
+(doc conj)
+(vector)
+(doc take)
+(take 0 [])
